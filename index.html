@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsidian Hearth | Premium Wood-Fired Steakhouse</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#050505',
+                        amber: '#D97706',
+                        charcoal: '#1A1A1A',
+                        offwhite: '#F8FAF6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #050505; color: #F8FAF6; }
+        /* Simple animation for the menu tabs */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-6 bg-transparent">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="font-serif text-2xl tracking-widest text-offwhite">OBSIDIAN HEARTH</div>
+            <div class="hidden md:flex gap-8 items-center text-sm tracking-wide">
+                <a href="#experience" class="hover:text-amber transition-colors">Experience</a>
+                <a href="#menu" class="hover:text-amber transition-colors">Menu</a>
+                <button class="bg-amber text-obsidian px-6 py-2 rounded-full font-medium hover:scale-105 transition-transform shadow-[0_0_15px_rgba(217,119,6,0.4)]">
+                    Reserve
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2069&auto=format&fit=crop')] bg-cover bg-center opacity-40"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/50 to-transparent z-10"></div>
+        
+        <div class="relative z-20 text-center max-w-4xl px-6 mt-20">
+            <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                SAVOR THE PRIMAL.<br/>EXPERIENCE THE REFINED.
+            </h1>
+            <p class="text-lg md:text-xl text-offwhite/80 mb-10 max-w-2xl mx-auto">
+                Masterfully aged steaks meet the raw power of the wood-fire grill. An immersive culinary journey in the heart of the city.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <button class="bg-amber text-obsidian px-8 py-4 rounded-full font-bold uppercase tracking-wider hover:scale-105 transition-transform shadow-[0_0_15px_rgba(217,119,6,0.4)]">
+                    Book a Table
+                </button>
+                <button class="border border-offwhite/30 text-offwhite px-8 py-4 rounded-full font-bold uppercase tracking-wider hover:bg-offwhite/10 transition-colors">
+                    View the Menu
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="w-full py-32 px-6 bg-obsidian">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="font-serif text-4xl mb-8">The Flame is Our Foundation</h2>
+            <p class="text-xl md:text-2xl leading-relaxed text-offwhite/70 font-light italic">
+                "From the crackle of kiln-dried white oak to the precision of our master butchers, every detail at Obsidian Hearth is fueled by a passion for the flame."
+            </p>
+        </div>
+    </section>
+
+    <section id="menu" class="w-full py-24 px-6 bg-charcoal">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="font-serif text-4xl text-center mb-12">Curated Offerings</h2>
+            
+            <div class="flex justify-center gap-8 mb-8 border-b border-white/10 pb-4">
+                <button onclick="openTab('Starters')" class="text-lg text-amber border-b-2 border-amber pb-1" id="btn-Starters">Starters</button>
+                <button onclick="openTab('Mains')" class="text-lg text-offwhite/60 hover:text-offwhite pb-1" id="btn-Mains">Mains</button>
+                <button onclick="openTab('Cellar')" class="text-lg text-offwhite/60 hover:text-offwhite pb-1" id="btn-Cellar">Cellar</button>
+            </div>
+
+            <div id="tab-Starters" class="tab-content active space-y-6">
+                <div class="flex justify-between items-baseline border-b border-white/10 pb-4">
+                    <div><h4 class="font-serif text-xl">Bone Marrow & Toast</h4><p class="text-sm text-offwhite/60 mt-1">Smoked garlic, parsley salad</p></div>
+                    <span class="text-amber font-medium">$24</span>
+                </div>
+                <div class="flex justify-between items-baseline border-b border-white/10 pb-4">
+                    <div><h4 class="font-serif text-xl">Charred Octopus</h4><p class="text-sm text-offwhite/60 mt-1">Chorizo emulsion, fingerling potato</p></div>
+                    <span class="text-amber font-medium">$28</span>
+                </div>
+            </div>
+
+            <div id="tab-Mains" class="tab-content space-y-6">
+                <div class="flex justify-between items-baseline border-b border-white/10 pb-4">
+                    <div><h4 class="font-serif text-xl">Dry-Aged Tomahawk</h4><p class="text-sm text-offwhite/60 mt-1">45-day aged, fired over white oak</p></div>
+                    <span class="text-amber font-medium">$140</span>
+                </div>
+                <div class="flex justify-between items-baseline border-b border-white/10 pb-4">
+                    <div><h4 class="font-serif text-xl">Wagyu Striploin</h4><p class="text-sm text-offwhite/60 mt-1">A5 grading, blistered shishitos</p></div>
+                    <span class="text-amber font-medium">$115</span>
+                </div>
+            </div>
+
+            <div id="tab-Cellar" class="tab-content space-y-6">
+                <div class="flex justify-between items-baseline border-b border-white/10 pb-4">
+                    <div><h4 class="font-serif text-xl">Cabernet Sauvignon</h4><p class="text-sm text-offwhite/60 mt-1">Napa Valley, 2018</p></div>
+                    <span class="text-amber font-medium">$180/btl</span>
+                </div>
+                <div class="flex justify-between items-baseline border-b border-white/10 pb-4">
+                    <div><h4 class="font-serif text-xl">Smoked Old Fashioned</h4><p class="text-sm text-offwhite/60 mt-1">Rye, maple, hickory smoke</p></div>
+                    <span class="text-amber font-medium">$22</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full py-32 px-6 bg-obsidian">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <h2 class="font-serif text-4xl">Find the Hearth.</h2>
+                <div class="text-offwhite/80 space-y-2">
+                    <p>123 Ember Lane, Gastronomy District.</p>
+                    <p>Open Daily: 5 PM – 11 PM.</p>
+                </div>
+                <form class="space-y-4 pt-4" onsubmit="event.preventDefault(); alert('Message sent!');">
+                    <input type="text" placeholder="Name" class="w-full bg-charcoal border border-white/10 p-4 rounded focus:outline-none focus:border-amber transition-colors" required>
+                    <input type="email" placeholder="Email" class="w-full bg-charcoal border border-white/10 p-4 rounded focus:outline-none focus:border-amber transition-colors" required>
+                    <button type="submit" class="bg-white/5 border border-white/10 text-offwhite px-8 py-3 rounded hover:bg-white/10 transition-all w-full md:w-auto">
+                        Submit Inquiry
+                    </button>
+                </form>
+            </div>
+            <div class="w-full h-full min-h-[400px] bg-charcoal rounded-lg border border-white/10 flex items-center justify-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop')] bg-cover opacity-20 grayscale"></div>
+                <button class="relative z-10 bg-amber text-obsidian px-6 py-2 rounded-full font-medium shadow-[0_0_15px_rgba(217,119,6,0.4)] hover:scale-105 transition-transform">
+                    Load Map
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 1. Sticky Navbar Background Change on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.remove('py-6', 'bg-transparent');
+                nav.classList.add('py-3', 'bg-obsidian/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
+            } else {
+                nav.classList.add('py-6', 'bg-transparent');
+                nav.classList.remove('py-3', 'bg-obsidian/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
+            }
+        });
+
+        // 2. Menu Tab Switching Logic
+        function openTab(tabName) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            // Reset all buttons to unselected state
+            document.querySelectorAll('[id^="btn-"]').forEach(btn => {
+                btn.className = "text-lg text-offwhite/60 hover:text-offwhite pb-1";
+            });
+            
+            // Show the selected tab content
+            document.getElementById('tab-' + tabName).classList.add('active');
+            // Highlight the selected button
+            document.getElementById('btn-' + tabName).className = "text-lg text-amber border-b-2 border-amber pb-1";
+        }
+    </script>
+</body>
+</html>
