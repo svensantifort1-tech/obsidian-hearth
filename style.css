@@ -1,0 +1,177 @@
+/* --- CSS Variables (The Brand Palette) --- */
+:root {
+    --obsidian: #050505;
+    --amber: #D97706;
+    --amber-glow: rgba(217, 119, 6, 0.4);
+    --charcoal: #1A1A1A;
+    --off-white: #F8FAF6;
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* --- Base Reset & Typography --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--obsidian);
+    color: var(--off-white);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Navigation (Glassmorphism) --- */
+.glass-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem 0;
+    transition: all 0.3s ease;
+    /* The 100/100 Glass Effect */
+    background: rgba(5, 5, 5, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-nav.scrolled {
+    padding: 1rem 0;
+    background: rgba(5, 5, 5, 0.85);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.desktop-nav a {
+    color: var(--off-white);
+    text-decoration: none;
+    margin: 0 1.5rem;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.desktop-nav a:hover {
+    color: var(--amber);
+}
+
+/* --- Buttons --- */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--amber);
+    color: var(--obsidian);
+    border: 1px solid var(--amber);
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--amber-glow);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--off-white);
+    border: 1px solid var(--off-white);
+}
+
+.btn-secondary:hover {
+    background-color: var(--off-white);
+    color: var(--obsidian);
+}
+
+.nav-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Placeholder for the LCP optimized WebP image */
+    background: url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(5,5,5,0.3), var(--obsidian));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+.hero-ctas {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+/* --- Performance Micro-Animations --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .desktop-nav { display: none; }
+    .hero-ctas { flex-direction: column; }
+}
